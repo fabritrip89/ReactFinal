@@ -1,9 +1,9 @@
- import logo from "./logo.svg"; 
+import logo from "./logo.svg"; 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
-
+import bolsocatriamarillo from './images/bolsocatriamarillo.jpg'; 
 
 const App =() => {
   return (
@@ -12,6 +12,8 @@ const App =() => {
       <header className="App-header">
        
         { <img src={logo} className="App-logo" alt="logo" /> }
+        
+       {  <img src={bolsocatriamarillo} className="App-logo" alt="logopagina" /> }
         
         <p>Bienvenido a Padel Rock</p>
         <a
@@ -22,7 +24,7 @@ const App =() => {
         >
           Visitanos
         </a>
-        
+
       </header>
       <Footer/>
 
