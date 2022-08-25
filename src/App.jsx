@@ -3,28 +3,39 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
-import bolsocatriamarillo from './images/bolsocatriamarillo.jpg'; 
+import Title from './components/navbar/title';
+import ItemlistContainer from './components/container/itemlisContainer'
+
 
 const App =() => {
   return (
     <div className="App">
-       <NavBar/>
+       <NavBar>
+       <Title msj="Hello" color="Green">
+        <div></div>
+        </Title>
+
+        </NavBar>
+        <ItemlistContainer black="blue" msj="Bienvenido a PadelRock" ></ItemlistContainer> 
+
+        
+      
       <header className="App-header">
        
         { <img src={logo} className="App-logo" alt="logo" /> }
         
-       {  <img src={bolsocatriamarillo} className="App-logo" alt="logopagina" /> }
+  
         
-        <p>Bienvenido a Padel Rock</p>
+        <p>El mejor Shop de Padel</p>
         <a
           className="App-link"
           href="https://fabritrip89.github.io/fabricio_tripicchio_Js/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Visitanos
+          Ingresar
         </a>
-
+    
       </header>
       <Footer/>
 
