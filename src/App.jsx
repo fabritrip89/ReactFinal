@@ -1,31 +1,66 @@
-import logo from "./logo.svg"; 
+import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
-import Title from './components/navbar/title';
-import ItemlistContainer from './components/container/itemlisContainer'
+/* import Title from "./components/navbar/title"; */
+import ItemlistContainer from "./components/container/itemlisContainer";
+import { useState, useEffect } from "react";
 
 
-const App =() => {
+
+
+
+const App = ({ textoDeBusqueda }) => {
+  const [carrito, setCarrito] = useState([]);
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    //cuando ya se creo logiaimportante
+    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${textoDeBusqueda}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProductos(data.results);
+      });
+  }, [textoDeBusqueda]);
+  console.log(productos);
+  console.log("por renderizar");
+
+  //se hacen validaciones
+
   return (
+
+    
     <div className="App">
-       <NavBar>
-       <Title msj="Hello" color="Green">
-        <div></div>
-        </Title>
+      <NavBar carritoLenght={carrito.length} />
+      {/* <Title msj="Hello" color="Green"> */}
 
-        </NavBar>
-        <ItemlistContainer black="blue" msj="Bienvenido a PadelRock" ></ItemlistContainer> 
+      <div>
+        <h3>Poducto random</h3>
+        <div>
+          <button
 
-        
-      
-      <header className="App-header">
-       
-        { <img src={logo} className="App-logo" alt="logo" /> }
-        
+
+            onClick={() => {
+              setCarrito([
+                ...carrito,
+                "zapas niky",
+              ]); /* valores previos al carrito mas lo nuevos */
+              console.log(carrito);
+            }}
+          >
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
   
-        
+
+     
+      <ItemlistContainer/>
+
+      <header className="App-header">
+        {<img src={logo} className="App-logo" alt="logo" />}
+
         <p>El mejor Shop de Padel</p>
         <a
           className="App-link"
@@ -35,12 +70,10 @@ const App =() => {
         >
           Ingresar
         </a>
-    
       </header>
-      <Footer/>
-
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

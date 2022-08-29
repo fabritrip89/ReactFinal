@@ -1,4 +1,3 @@
-/* import bolsocatriamarillo from './images/bolsocatriamarillo.jpg';  */
 
 const Title = ({color, msj}) => {
     return (
@@ -12,10 +11,3 @@ const Title = ({color, msj}) => {
 
 export default Title;
 
-/* const Cartwidget =({}) => {
-    return
-    {  <img src={bolsocatriamarillo} className="App-logo" alt="logopagina" /> }
-
-}
-
-export default Cartwidget; */

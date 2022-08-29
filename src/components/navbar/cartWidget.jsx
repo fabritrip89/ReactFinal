@@ -3,7 +3,7 @@
 const Widget = () => {
 return (
 
-    <img src="./iconodePagina.jpg" width= '40 px' alt="bourne" />
+    <img src="./carrito-de-compras.svg" width= '20 px' alt="carrito" />
 
 )
 

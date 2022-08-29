@@ -1,14 +1,20 @@
- const ItemlistContainer = ({black, msj}) => {
+import ItemCount from "../navbar/itemCount";
+import React from "react";
 
-    return (
+export const ItemlistContainer = ({ black, msj }) => {
 
-        <span>
-        <h1 style={{backroundColor: black}}>{msj}</h1> 
-        
-        </span>
+  const onAdd = (quantity) => {
 
-    )
-}
+    console.log(`agregaste ${quantity} unidades`);
+    
+  };
+
+  return (
+    <>
+
+      <ItemCount initial={0} stock={50} onAdd={onAdd} />
+    </>
+  );
+};
 
 export default ItemlistContainer;
-
