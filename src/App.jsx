@@ -8,55 +8,60 @@ import ItemlistContainer from "./components/container/itemlisContainer";
 import { useState, useEffect } from "react";
 
 
-
-
-
-const App = ({ textoDeBusqueda }) => {
+const App = ( ) => {
   const [carrito, setCarrito] = useState([]);
   const [productos, setProductos] = useState([]);
 
+  const buscarProductos = async () => {
+    try {
+      const response = await fetch(
+        `https://api.mercadolibre.com/sites/MLA/search?q=palaspadel`
+      );
+      const data = await response.json();
+      setProductos(data.results);
+    } catch (e) {
+    //  console.log(e);
+    }
+  };
+
   useEffect(() => {
     //cuando ya se creo logiaimportante
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${textoDeBusqueda}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setProductos(data.results);
-      });
-  }, [textoDeBusqueda]);
-  console.log(productos);
-  console.log("por renderizar");
+    buscarProductos();
+  }, []);
+ //  console.log(productos); 
+ // console.log("por renderizar");
 
   //se hacen validaciones
 
   return (
-
-    
     <div className="App">
       <NavBar carritoLenght={carrito.length} />
       {/* <Title msj="Hello" color="Green"> */}
+      {productos.map((producto) => {
+        if(producto.stock ===0){
+          return <b>No existe</b> 
+        }
+        return (
+          //se aplica al Padre Div id [unico]
+          <div key={producto.id}> 
+            <h3>{producto.title}</h3>
+            <img src={producto.thumbnail} alt=""/>
+            <div>
+              <button onClick={() => {
+                  setCarrito([...carrito, producto,]); /* valores previos al carrito mas lo nuevos */
+                  console.log(carrito);
+                }}
+              >
+                Agregar al carrito
+              </button>
+            </div>
+          </div>
+        );
+      })}
 
-      <div>
-        <h3>Poducto random</h3>
-        <div>
-          <button
+      <ItemlistContainer />
 
-
-            onClick={() => {
-              setCarrito([
-                ...carrito,
-                "zapas niky",
-              ]); /* valores previos al carrito mas lo nuevos */
-              console.log(carrito);
-            }}
-          >
-            Agregar al carrito
-          </button>
-        </div>
-      </div>
-  
-
-     
-      <ItemlistContainer/>
+      
 
       <header className="App-header">
         {<img src={logo} className="App-logo" alt="logo" />}
