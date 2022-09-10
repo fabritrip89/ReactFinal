@@ -1,17 +1,19 @@
 
-
+import './items.css';
 import React from 'react';
+
 
 const Item = ({ info }) => {
     return (
 
 
 
-        <a href=''>
-            <img src={info.image} alt='' />
+        <div className='alturaImg'>
+            <img className='imaGen' src={info.image} alt='' />
             <p> {info.title}</p>
+            <p> {info.price}</p>
 
-        </a>
+        </div>
 
 
 

@@ -1,0 +1,15 @@
+.alturaImg{
+    display: inline-block;
+     justify-content: center;
+       flex-direction: row;
+       background: rgb(228,17,209);
+background: radial-gradient(circle, rgba(228,17,209,1) 0%, rgba(158,152,157,1) 80%, rgba(209,0,255,0.7178221630449055) 100%);
+
+
+    
+}
+
+.imaGen{
+    height: 15rem;
+    width: 20rem;
+}

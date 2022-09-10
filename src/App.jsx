@@ -6,6 +6,7 @@ import Footer from "./components/footer/footer";
 /* import Title from "./components/navbar/title"; */
 import ItemlistContainer from "./components/container/itemlisContainer";
 import { useState, useEffect } from "react";
+import ItemDetailContainer from "./components/itemDetailContainer";
 
 
 const App = ( ) => {
@@ -15,7 +16,7 @@ const App = ( ) => {
   const buscarProductos = async () => {
     try {
       const response = await fetch(
-        `https://api.mercadolibre.com/sites/MLA/search?q=palaspadel`
+        /* `https://api.mercadolibre.com/sites/MLA/search?q=palaspadel` */
       );
       const data = await response.json();
       setProductos(data.results);
@@ -35,13 +36,17 @@ const App = ( ) => {
 
   return (
     <div className="App">
-      <NavBar carritoLenght={carrito.length} />
+      <NavBar  carritoLenght={carrito.length} />
       {/* <Title msj="Hello" color="Green"> */}
       {productos.map((producto) => {
         if(producto.stock ===0){
           return <b>No existe</b> 
         }
-        return (
+        return  (
+
+
+ 
+
           //se aplica al Padre Div id [unico]
           <div key={producto.id}> 
             <h3>{producto.title}</h3>
@@ -59,7 +64,9 @@ const App = ( ) => {
         );
       })}
 
-      <ItemlistContainer />
+<ItemDetailContainer />
+
+      <ItemlistContainer  />
 
       
 

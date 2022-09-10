@@ -3,10 +3,17 @@ import Itemlist from "../itemList";
 import React, { useState, useEffect } from "react";
 
 const palas = [
-    { id: 1, image: "public/images/paletaVariloncostado.png", title: "Pala Varilon" },
-    { id: 2, image: "public/images/munequera.jpg", title: "Pala Varilon" },
+   /*  { id: 1, image: "/bourne.png", title: "Pala Varilon", price: 'U$D 500' }, */
+   /*  { id: 2, image: "/images/munequera.jpg", title: "Pala Varilon", price: 'U$D 500' }, */
+    { id: 2, image: "/images/paletaVarilon.png", title: "Pala Varilon", price: 'U$D 500' },
+    { id: 3, image: " images/varilonAvant.png", title: "Pala Varilon", price: 'U$D 500' },
+    { id: 4, image: " images/canonFrente.png", title: "Pala Varilon", price: 'U$D 500' },
+    { id: 5, image: " images/varilonLwfrente.png", title: "Pala Varilon", price: 'U$D 500' },
+     { id: 6, image: " images/bourne-carbon-titanFrente.png", title: "Pala Varilon", price: 'U$D 500' }, 
+     { id: 7, image: " images/bourne-8.8.png", title: "Pala Varilon", price: 'U$D 500' }
 
 
+   
 ];
 
 
@@ -20,7 +27,7 @@ export const ItemlistContainer = ({ texto }) => {
 
                
                     resolve(palas);
-            }, 5000);
+            }, 3000);
 
         });
         getData.then(res => setData(res));
