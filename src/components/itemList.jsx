@@ -1,4 +1,4 @@
-import Item from "./main/item";
+import Item from "./items";
 import React from "react";
 
 const Itemlist =({data = []})=> {

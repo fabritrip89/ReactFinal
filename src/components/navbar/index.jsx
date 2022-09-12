@@ -9,25 +9,33 @@ export const NavBar =() => {
     <div className="container">
       <div className="nav">
         <div className="nav_brand">
-          <NavLink className= "nav_link" to='/' >  Marca </NavLink>  
+          <NavLink className= "nav_link" to='/' >  PadelRock </NavLink>  
           </div>
           <ul className="nav_list"> 
           <li>
-          <NavLink className="nav__link" to= '/categoria/films' > Categoria</NavLink>
+          <NavLink className="nav__link" to= '/categoria/amateur' >Palas Principiantes </NavLink>
 
           </li>
           <li>  
-          <NavLink className="nav__link" to='/categoria/series' > Categoria 1</NavLink>
+          <NavLink className="nav__link" to='/categoria/inter' >Palas Nivel Intermedio </NavLink>
 
+          </li> 
+
+          <li>
+          <NavLink className="nav__link" to='/categoria/pro' > Palas Profesionales</NavLink>
+
+
+         
           </li>
 
           <li>
-          <NavLink className="nav__link" to='/cart' > Categoria 1</NavLink>
+          <NavLink className="nav__link" to='/cart' > Carrito</NavLink>
 
-
-          <Widget />
+        
+         
           </li>
 
+          <Widget />
 
           </ul>
  
