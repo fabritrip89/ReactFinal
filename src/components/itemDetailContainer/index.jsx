@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState  } from "react";
-
 import ItemDetail from "../itemDetail";
 import { useParams } from "react-router-dom";
 /* import Itemlist from "../itemList"; */
@@ -26,7 +25,7 @@ export const ItemDetailContainer = () => {
       }, 1000);
     });
 
-    getData.then(res => setData (res.find(pala => pala.id === parseInt (detalleId)))); /* revisar, ver si esto esta bien */
+    getData.then(res => setData (res.find(palas => palas.id === parseInt (detalleId)))); /* revisar, ver si esto esta bien si lleva s o no palas*/
   }, [detalleId]) /* revisar, ver si esto esta bien */
   
 

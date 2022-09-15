@@ -1,4 +1,4 @@
-import ItemCount from "../navbar/itemCount";
+
 import Itemlist from "../itemList";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -36,8 +36,7 @@ export const ItemlistContainer = ({ texto }) => {
 
         if (categoriaId) {
             getData.then(res => setData (res.filter(pro => pro.category === categoriaId))); /* se aplican filtros de busqueda ver si esto esta bien */
-            getData.then(res => setData (res.filter(inter => inter.category === categoriaId))); /* ver si esto esta bien */
-            getData.then(res => setData (res.filter(amateur => amateur.category === categoriaId))); /* ver si esto esta bien */
+           
             
         }  else{
 
@@ -48,15 +47,12 @@ export const ItemlistContainer = ({ texto }) => {
 
     }, [categoriaId])
 
-    const onAdd = (quantity) => {
-        console.log(`agregaste ${quantity} unidades`);
-
-    }
+   
 
     return (
         <>
 
-            <ItemCount initial={0} stock={50} onAdd={onAdd} />
+           
             <Itemlist data={data} />
         </>
     );
